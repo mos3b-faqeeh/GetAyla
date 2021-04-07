@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
 
 # Application definition
 
-#test
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
