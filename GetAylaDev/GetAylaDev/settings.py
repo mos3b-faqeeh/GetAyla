@@ -26,11 +26,12 @@ SECRET_KEY = 'l%59yxntyao4^_z3-73$%1z63i3whi_g(dky)%f968d7rwxyxb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['198.199.89.91']
+ALLOWED_HOSTS = ['198.199.89.91', 'getayla.io']
 
 
 # Application definition
 
+#test
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
