@@ -31,17 +31,27 @@
 <link rel="stylesheet" href="{% static 'CurrentDashboard/assets/css/black-dashboard.css' %}" />
 <link rel="stylesheet" href="{% static 'CurrentDashboard/assets/demo/demo.css' %}" />
   <title>
-    Instagram followers Dashboard
+    Black Dashboard by Creative Tim
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
+
+  <style>
+body {
+  background-color: white;
+}
+
+</style>
 </head>
 
 <body class="white-content">
   <div class="wrapper">
     <div class="sidebar">
+
       <!--ls
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
     -->
@@ -51,7 +61,7 @@
             CT
           </a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
-    Instagram followers Dashboard
+            Creative Tim
           </a>
         </div>
         <ul class="nav">
@@ -116,6 +126,10 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
         <div class="container-fluid">
+
+
+
+
           <div class="navbar-wrapper">
             <div class="navbar-toggle d-inline">
               <button type="button" class="navbar-toggler">
@@ -190,56 +204,16 @@
       </div>
       <!-- End Navbar -->
       <div class="content">
-        <div class="row">
-          <div class="col-12">
-            <div class="card card-chart">
-              <div class="card-header ">
-                <div class="row">
-                  <div class="col-sm-6 text-left">
-                    <h5 class="card-category">Total Shipments</h5>
-                    <h2 class="card-title">Performance</h2>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                      <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                        <input type="radio" name="options" checked>
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Accounts</span>
-                        <span class="d-block d-sm-none">
-                          <i class="tim-icons icon-single-02"></i>
-                        </span>
-                      </label>
-                      <label class="btn btn-sm btn-primary btn-simple" id="1">
-                        <input type="radio" class="d-none d-sm-none" name="options">
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Purchases</span>
-                        <span class="d-block d-sm-none">
-                          <i class="tim-icons icon-gift-2"></i>
-                        </span>
-                      </label>
-                      <label class="btn btn-sm btn-primary btn-simple" id="2">
-                        <input type="radio" class="d-none" name="options">
-                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sessions</span>
-                        <span class="d-block d-sm-none">
-                          <i class="tim-icons icon-tap-02"></i>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="chartBig1"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
+
+
+
+
+                        <div class="row">
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Total Shipments</h5>
-                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
+                <h5 class="card-category">Post Engagement</h5>
+                <h4 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> Statistics about posts from the target lists</h4>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -251,8 +225,8 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Daily Sales</h5>
-                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
+                <h5 class="card-category">Locations</h5>
+                <h4 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> Top locations from the Target Lists </h4>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -264,8 +238,8 @@
           <div class="col-lg-4">
             <div class="card card-chart">
               <div class="card-header">
-                <h5 class="card-category">Completed Tasks</h5>
-                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
+                <h5 class="card-category">General Interests</h5>
+                <h4 class="card-title"><i class="tim-icons icon-send text-success"></i> Most Interests from the target list</h4>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -275,11 +249,121 @@
             </div>
           </div>
         </div>
+           <div class="row">
+
+
+
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                       <img src="{% static 'CurrentDashboard/assets/img/image.png' %}">
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category"> Images</p>
+                      <p class="card-title">200<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update Now
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                       <img src="{% static 'CurrentDashboard/assets/img/video.png' %}">
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Videos</p>
+                      <p class="card-title">100<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-calendar-o"></i>
+                  Last day
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                       <img src="{% static 'CurrentDashboard/assets/img/interactions.png' %}">
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">interactions</p>
+                      <p class="card-title">3400<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-clock-o"></i>
+                  In the last hour
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                       <img src="{% static 'CurrentDashboard/assets/img/post.png' %}">
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Posts</p>
+                      <p class="card-title">+45K<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                  <i class="fa fa-refresh"></i>
+                  Update now
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-lg-6 col-md-12">
             <div class="card card-tasks">
               <div class="card-header ">
-                <h6 class="title d-inline">Tasks(5)</h6>
+                <h6 class="title d-inline">List of Users</h6>
                 <p class="card-category d-inline">today</p>
                 <div class="dropdown">
                   <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
@@ -431,7 +515,7 @@
           <div class="col-lg-6 col-md-12">
             <div class="card ">
               <div class="card-header">
-                <h4 class="card-title"> Simple Table</h4>
+                <h4 class="card-title"> List of competitors</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
