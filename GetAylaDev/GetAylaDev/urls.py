@@ -7,4 +7,5 @@ urlpatterns = [
     path('', include('UserProfile.urls')),
     path('dashboard/', include('CurrentDashboard.urls')),
 
+
 ]
