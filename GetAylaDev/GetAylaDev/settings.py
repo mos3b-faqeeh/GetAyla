@@ -29,6 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
