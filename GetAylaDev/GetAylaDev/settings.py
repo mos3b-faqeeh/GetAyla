@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
 
 # Application definition
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,8 +80,8 @@ WSGI_APPLICATION = 'GetAylaDev.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'GetAyla',
-        'USER': 'postgres',
+        'NAME': 'myproject',
+        'USER': 'mosab',
         'PASSWORD': 'FAQEEH1990k',
         'HOST': 'localhost',
         'PORT': '',
