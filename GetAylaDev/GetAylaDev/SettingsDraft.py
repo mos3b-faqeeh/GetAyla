@@ -31,16 +31,8 @@ ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'CurrentDashboard',
-    'UserProfile',
-]
+
+###
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
