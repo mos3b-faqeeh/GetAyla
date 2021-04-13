@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
 
 
 
-###
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
