@@ -9,4 +9,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('register/', include('Accounts.urls')),
 
+
+
 ]
