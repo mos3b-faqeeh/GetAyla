@@ -33,14 +33,14 @@
 
 <div class="left-side d-flex align-items-center">
 <div class="logo">
-<a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+  <a href="index.html">  <img src="{% static 'Home/assets/img/logo/logo4.png' %}" width="150" height="70"> </a>
+
 </div>
 
 <div class="main-menu d-none d-lg-block">
 <nav>
 <ul id="navigation">
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
+<li><a href="{% url 'login'  %}">Login</a></li>
 <li><a href="services.html">Services</a></li>
 <li><a href="case-study.html">Case Study</a></li>
 <li><a href="blog.html">Blog</a>
@@ -56,8 +56,20 @@
 </div>
 </div>
 <div class="header-right-btn f-right">
-<a href="#" class="header-btn2">Call Us: <span>+10 (78) 378 3784</span></a>
-<a href="#" class="btn_0">Let's Talk</a>
+{% if user.is_authenticated %}
+  <li>
+   <a href="{% url 'dashboard'  %}" class="btn_0">{{user.first_name}}</a>
+    <ul class="submenu">
+        <li><a href="{% url 'user'  %}">My Dashboard</a></li>
+        <li><a href="{% url 'logout'  %}">logout</a></li>
+    </ul>
+    </li>
+
+
+{% else %}
+    <a href="{% url 'register'  %}" class="btn_0">Register Now</a>
+{% endif %}
+
 </div>
 
 <div class="col-12">
