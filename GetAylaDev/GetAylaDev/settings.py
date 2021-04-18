@@ -26,8 +26,8 @@ SECRET_KEY = 'l%59yxntyao4^_z3-73$%1z63i3whi_g(dky)%f968d7rwxyxb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,8 +85,8 @@ WSGI_APPLICATION = 'GetAylaDev.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'GetAyla',
-        'USER': 'postgres',
+        'NAME': 'myproject',
+        'USER': 'mosab',
         'PASSWORD': 'FAQEEH1990k',
         'HOST': 'localhost',
         'PORT': '',
