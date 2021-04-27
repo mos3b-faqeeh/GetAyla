@@ -4,6 +4,6 @@ from django.contrib import admin
 
 from django.contrib import admin
 
-from .models import Profiles
+from .models import InstaProfiles
 
-admin.site.register(Profiles)
+admin.site.register(InstaProfiles)
