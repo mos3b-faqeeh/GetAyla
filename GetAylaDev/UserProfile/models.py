@@ -4,6 +4,7 @@ from django.db import models
 
 
 
+
 class InstaProfiles(models.Model):
     BusinessName = models.CharField(max_length=200)
     InstagramUserName= models.CharField(max_length=200)
