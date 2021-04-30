@@ -27,11 +27,24 @@ SECRET_KEY = 'l%59yxntyao4^_z3-73$%1z63i3whi_g(dky)%f968d7rwxyxb'
 DEBUG = True
 
 ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'CurrentDashboard',
+    'UserProfile',
+    'home',
+    'Accounts',
 
+]
 
 
 
@@ -66,7 +79,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'GetAylaDev.wsgi.application'
 
 
-# Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
@@ -80,6 +92,8 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+
 
 
 # Password validation
