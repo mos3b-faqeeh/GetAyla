@@ -1,326 +1,199 @@
+<!--
+=========================================================
+* Soft UI Dashboard - v1.0.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/soft-ui-dashboard/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 {% load static %}
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>SEO | Template</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/x-icon" href="{% static 'Home/assets/img/icon/favicon.png' %}">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'NewDashboard/assets/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'NewDashboard/assets/img/favicon.png' %}" >
+  <title>
+    Soft UI Dashboard by Creative Tim
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="{% static 'NewDashboard/assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'NewDashboard/assets/css/nucleo-svg.css' %}" rel="stylesheet" />
 
-<link rel="stylesheet" href="{% static 'Home/assets/css/bootstrap.min.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/owl.carousel.min.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/slicknav.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/animate.min.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/magnific-popup.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/fontawesome-all.min.css' %}" />
-
-
-<link rel="stylesheet" href="{% static 'Home/assets/css/themify-icons.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/slick.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/nice-select.css' %}" />
-<link rel="stylesheet" href="{% static 'Home/assets/css/style.css' %}" />
-
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{% static 'NewDashboard/assets/css/soft-ui-dashboard.css' %}" rel="stylesheet" />
 
 </head>
-<body>
 
+<body class="g-sidenav-show  bg-white">
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+      <div class="col-12">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg  blur blur-rounded top-0  z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          <div class="container-fluid">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
+              Soft UI Dashboard
+            </a>
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navigation">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                    Dashboard
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="../pages/profile.html">
+                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                    Profile
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="../pages/sign-up.html">
+                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                    Sign Up
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-2" href="../pages/sign-in.html">
+                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                    Sign In
+                  </a>
+                </li>
+              </ul>
+              <ul class="navbar-nav d-lg-block d-none">
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Sign Up</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="page-header section-height-75">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+            <div class="card card-plain mt-8">
+              <div class="card-header pb-0 text-left bg-transparent">
+                <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
+                <p class="mb-0">Enter your email and password to sign in</p>
+              </div>
+              <div class="card-body">
+                <form role="form text-left" action="login" method="post">
+                        {% csrf_token %}
 
-<header>
-<div class="header-area header-transparent">
-<div class="main-header header-sticky">
-<div class="container-fluid">
-<div class="d-flex align-items-center justify-content-between flex-wrap position-relative">
+                  <label>Email</label>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" name="username">
+                  </div>
+                  <label>Password</label>
+                  <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
+                  </div>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                  </div>
+                </form>
 
-<div class="left-side d-flex align-items-center">
-<div class="logo">
-  <a href="index.html">  <img src="{% static 'Home/assets/img/logo/logo4.png' %}" width="150" height="70"> </a>
-
-</div>
-
-<div class="main-menu d-none d-lg-block">
-<nav>
-<ul id="navigation">
-<li><a href="{% url 'login'  %}">Login</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="case-study.html">Case Study</a></li>
-<li><a href="blog.html">Blog</a>
-<ul class="submenu">
-<li><a href="blog.html">Blog</a></li>
-<li><a href="blog_details.html">Blog Details</a></li>
-<li><a href="elements.html">Elements</a></li>
-</ul>
-</li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class="header-right-btn f-right">
-{% if user.is_authenticated %}
-  <li>
-   <a href="{% url 'dashboard'  %}" class="btn_0">{{user.first_name}}</a>
-    <ul class="submenu">
-        <li><a href="{% url 'user'  %}">My Dashboard</a></li>
-        <li><a href="{% url 'logout'  %}">logout</a></li>
-    </ul>
-    </li>
-
-
-{% else %}
-    <a href="{% url 'register'  %}" class="btn_0">Register Now</a>
-{% endif %}
-
-</div>
-
-<div class="col-12">
-<div class="mobile_menu d-block d-lg-none"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<main>
-
-<div class="slider-area position-relative">
-<div class="single-sliders slider-height2 slider-bg2 d-flex align-items-center">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-9">
-<div class="hero-caption hero-caption2">
-<h1>Login</h1>
-<p>We build effective strategies to help you reach customers and prospects across the entire web.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-<section class="contact-section">
-<div class="container">
-<div class="d-none d-sm-block mb-5 pb-4">
-
-</div>
-<div class="row">
-<div class="col-12">
-<h2 class="contact-title">Get in Touch</h2>
-</div>
-<div class="col-lg-8">
-<form class="form-contact contact_form" action="login" method="post" >
-<div class="row">
-    {% csrf_token %}
-
-<div class="col-sm-6">
-<input class="form-control valid" name="username"  type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Username'" placeholder="Enter your Username">
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-<input class="form-control valid" name="password"  type="password" onfocus="this.placeholder = ''" placeholder="Password">
-</div>
-</div>
-
-
-<div class="col-sm-6">
-<div class="form-group">
-</div>
-</div>
-<div class="col-sm-6">
-<div class="form-group">
-</div>
-</div>
-
-
-
-
-
-</div>
-<div class="form-group mt-3">
-<button type="submit" class="button button-contactForm boxed-btn">Login</button>
-</div>
-</form>
-
-<div>
+                  <div>
     {% for message in messages  %}
     <h3>{{message}}</h3>
     {% endfor %}
 
 </div>
+              </div>
+              <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <p class="mb-4 text-sm mx-auto">
+                  Don't have an account?
+                  <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign up</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+              <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('{% static 'NewDashboard/assets/img/curved-images/curved6.jpg' %}')"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+  <footer class="footer py-4 fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mb-4 mx-auto text-center">
+          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            Company
+          </a>
+          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            About Us
+          </a>
+          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            Team
+          </a>
+          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            Products
+          </a>
+          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            Blog
+          </a>
+          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            Pricing
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+  <!--   Core JS Files   -->
 
+    <script src="{% static 'NewDashboard/assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'NewDashboard/assets/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'NewDashboard/assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
+  <script src="{% static 'NewDashboard/assets/js/soft-ui-dashboard.min.js' %}"></script>
 
-</div>
-<div class="col-lg-3 offset-lg-1">
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-home"></i></span>
-<div class="media-body">
-<h3>Buttonwood, California.</h3>
-<p>Rosemead, CA 91770</p>
-</div>
-</div>
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-tablet"></i></span>
-<div class="media-body">
-<h3>+1 253 565 2365</h3>
-<p>Mon to Fri 9am to 6pm</p>
-</div>
-</div>
-<div class="media contact-info">
-<span class="contact-info__icon"><i class="ti-email"></i></span>
-<div class="media-body">
-<h3><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="30434540405f424470535f5c5f425c59521e535f5d">[email&#160;protected]</a></h3>
-<p>Send us your query anytime!</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-</main>
-<footer>
-<div class="footer-wrapper section-img-bg2" data-background="assets/img/gallery/footer-bg.jpg">
-
-<div class="footer-area footer-padding">
-<div class="container">
-<div class="row justify-content-between">
-<div class="col-xl-3 col-lg-3 col-md-6 col-sm-8">
-<div class="single-footer-caption mb-50">
-<div class="single-footer-caption mb-30">
-
-<div class="footer-logo mb-35">
-<a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
-</div>
-<div class="footer-tittle">
-<div class="footer-pera">
-<p>Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum</p>
-</div>
-
-<ul class="footer-social">
-<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-<li><a href="https://bit.ly/sai4ull"><i class="fab fa-facebook"></i></a></li>
-<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-<li> <a href="#"><i class="fab fa-youtube"></i></a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-<div class="single-footer-caption mb-50">
-<div class="footer-tittle">
-<h4>Navigation</h4>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Services</a></li>
-<li><a href="#">Blog</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-<div class="single-footer-caption mb-50">
-<div class="footer-tittle">
-<h4>Services</h4>
-<ul>
-<li><a href="#">Drone Mapping</a></li>
-<li><a href="#"> Real State</a></li>
-<li><a href="#">Commercial</a></li>
-<li><a href="#">Construction</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-xl-2 col-lg-2 col-md-4 col-sm-6">
-<div class="single-footer-caption mb-50">
-<div class="footer-tittle">
-<h4>Support</h4>
-<ul>
-<li><a href="#">Drone Mapping</a></li>
-<li><a href="#"> Real State</a></li>
-<li><a href="#">Commercial</a></li>
-<li><a href="#">Construction</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-8">
-<div class="single-footer-caption mb-50">
-<div class="footer-tittle mb-50">
-<h4>Contact Us</h4>
-<ul>
-<li><a href="#">Drone Mapping</a></li>
-<li class="number2"><a href="#"><span class="__cf_email__" data-cfemail="f2919d9c86939186b29193808593819adc919d9f">[email&#160;protected]</span></a></li>
-<li class="number"><a href="#">10 (87) 738-3940</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="footer-bottom-area">
-<div class="container">
-<div class="footer-border">
-<div class="row">
-<div class="col-xl-12 ">
-<div class="footer-copy-right text-center">
-<p>Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="nofollow noopener">Colorlib</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</footer>
-
-<div id="back-top">
-<a class="wrapper" title="Go to Top" href="#">
-<div class="arrows-container">
-<div class="arrow arrow-one">
-</div>
-<div class="arrow arrow-two">
-</div>
-</div>
-</a>
-</div>
-
-<script src="{% static 'Home/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/popper.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/bootstrap.min.js' %}"></script>
-
-<script src="{% static 'Home/assets/js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/slick.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/jquery.slicknav.min.js' %}"></script>
-
-
-<script src="{% static 'Home/assets/js/wow.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/jquery.magnific-popup.js' %}"></script>
-<script src="{% static 'Home/assets/js/jquery.nice-select.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/jquery.counterup.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/waypoints.min.js' %}"></script>
-
-
-<script src="{% static 'Home/assets/js/contact.js' %}"></script>
-<script src="{% static 'Home/assets/js/jquery.form.js' %}"></script>
-<script src="{% static 'Home/assets/js/jquery.validate.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/mail-script.js' %}"></script>
-
-  <script src="{% static 'CurrentDashboard/assets/js/core/popper.min.js' %}"></script>
-
-
-
-<script src="{% static 'Home/assets/js/jquery.ajaxchimp.min.js' %}"></script>
-<script src="{% static 'Home/assets/js/plugins.js' %}"></script>
-<script src="{% static 'Home/assets/js/main.js' %}"></script>
-
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
+
 </html>

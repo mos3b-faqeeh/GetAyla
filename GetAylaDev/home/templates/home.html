@@ -22,7 +22,13 @@
 <link rel="stylesheet" href="{% static 'Home/assets/css/nice-select.css' %}" />
 <link rel="stylesheet" href="{% static 'Home/assets/css/style.css' %}" />
 
-
+ <style>
+ .first{
+    width:40%;
+	position: relative;
+    top: 15px;
+}
+ </style>
 </head>
 <body>
 <header>
@@ -40,33 +46,31 @@
 <div class="main-menu d-none d-lg-block">
 <nav>
 <ul id="navigation">
-<li><a href="{% url 'login'  %}">Login</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="case-study.html">Case Study</a></li>
-<li><a href="blog.html">Blog</a>
-<ul class="submenu">
-<li><a href="blog.html">Blog</a></li>
-<li><a href="blog_details.html">Blog Details</a></li>
-<li><a href="elements.html">Elements</a></li>
-</ul>
+<li><a href="services.html">How it works</a></li>
+    <li><a href="blog.html">Pricing</a></li>
+
+    <li><a href="blog.html">Blog</a>
+
+<li><a href="case-study.html">Case Studies</a></li>
+
 </li>
-<li><a href="contact.html">Contact</a></li>
+<li><a href="contact.html">FAQ</a></li>
 </ul>
 </nav>
 </div>
 </div>
 <div class="header-right-btn f-right">
+
 {% if user.is_authenticated %}
-  <li>
-   <a href="{% url 'dashboard'  %}" class="btn_0">{{user.first_name}}</a>
-    <ul class="submenu">
-        <li><a href="{% url 'user'  %}">My Dashboard</a></li>
-        <li><a href="{% url 'logout'  %}">logout</a></li>
-    </ul>
-    </li>
+    <a href="{% url 'logout'  %}" class="btn_0">Logout</a>
+
+   <a href="{% url 'dashboard'  %}" class="btn_0">My Dashboard</a>
+
 
 
 {% else %}
+        <a href="{% url 'login'  %}" class="btn_0">Login</a>
+
     <a href="{% url 'register'  %}" class="btn_0">Register Now</a>
 {% endif %}
 
@@ -95,10 +99,18 @@ and prospects across the entire web.</p>
 <a href="services.html" class="btn_0 hero-btn">Explore Services</a>
 </div>
 </div>
-<div class="offset-xl-2 col-lg-5 col-md-6 position-relative">
+<div class="offset-xl-2 col-lg-5 col-md-6">
+
 <div class="video-icon">
+      <img src="{% static 'Home/assets/img/hero/bck.png' %}" width="600" height="400">
+
 <a class="popup-video btn-icon" href=" ">
-play
+    <div class="elementor-custom-embed-play" role="button">
+
+							<i class="eicon-play" aria-hidden="true"></i>
+
+<i class="fa fa-play"  style="font-size:48px;color:red;	position:relative; top: 28px;"></i> </div>
+
 </a>
 </div>
 
