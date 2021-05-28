@@ -1,6 +1,7 @@
-from django.shortcuts import render
+#!/usr/bin/env python3
 
-# Create your views here.
+
+
 import json
 from haralyzer import HarParser, HarPage
 import pdb;
@@ -8,9 +9,6 @@ import requests
 import urllib, json
 from urllib.request import urlopen
 from urllib.request import urlopen, Request
-from django.core.files import File
-import os
-
 
 
 
@@ -83,61 +81,58 @@ def commentsAnalyzer(data):
 
 
 
+file = "NewDataJinkstattoo.har"
 
+with open(file, 'r') as f:
+    har_parser = HarParser(json.loads(f.read()))
 
+results = []
+counter=0
+NumComm1=0
+NumComm=0
 
+NumLikes=0
+NumLikes1=0
 
-def dashboard (request):
-    module_dir = os.path.dirname(__file__)
-    file_path = os.path.join(module_dir, 'jinkstattoosandcoffee.har')  # full path to text.
-    data_file = open(file_path , 'r')
-    har_parser = HarParser(json.loads(data_file.read()))
-
-    results = []
-    counter = 0
-    NumComm1 = 0
-    NumComm = 0
-
-    NumLikes = 0
-    NumLikes1 = 0
-
-    try:
-        if har_parser:
-            for har in har_parser.har_data['entries']:
-                url = har["request"]["url"]
-                if "https://www.instagram.com/graphql/query/" in url:
+try:
+    if har_parser:
+        for har in har_parser.har_data['entries']:
+            url = har["request"]["url"]
+            if "https://www.instagram.com/graphql/query/" in url:
                     print("**************************** NEW DATA***************************")
 
                     print(har["request"]["url"], "\n")
 
-                    responseData = har["response"]["content"]["text"]
-                    # print(NumComm, "\n")
+                    responseData=har["response"]["content"]["text"]
+                    print(responseData)
+
+                    #print(NumComm, "\n")
                     NumComm = commentsAnalyzer(responseData)
                     NumLikes = likesAnalyzer(responseData)
-                    NumComm1 = NumComm1 + NumComm
-                    NumLikes1 = NumLikes1 + NumLikes
+                    NumComm1=NumComm1+NumComm
+                    NumLikes1=NumLikes1+NumLikes
 
                     NumFollowers = followed_by(responseData)
                     NumPosts = TotalPosts(responseData)
                     Pic = pic_link(responseData)
 
-                    # NumComm1=NumComm+NumComm1
-                    # NumLikes=likesAnalyzer(responseData)+NumLikes
 
-                    counter = counter + 1
+                    #NumComm1=NumComm+NumComm1
+                    #NumLikes=likesAnalyzer(responseData)+NumLikes
+
+                    counter=counter+1
 
                     results.append(har["request"]["url"])
 
-    except Exception as e:
+except Exception as e:
         print(e)
 
-    print(NumComm1, "\n")
-    print(NumLikes1, "\n")
 
-    print(NumFollowers, "\n")
-    print(NumPosts, "\n")
+print(NumComm1, "\n")
+print(NumLikes1, "\n")
 
-    print(Pic, "\n")
-    TotalInteraction=NumComm1 + NumLikes1
+print(NumFollowers, "\n")
+print(NumPosts, "\n")
 
-    return render(request, 'dashboard.html', {'NumComm1':NumComm1,'NumLikes1':NumLikes1,'NumFollowers':NumFollowers,'NumPosts':NumPosts,'Pic':Pic,'TotalInteraction':TotalInteraction})
+print(Pic, "\n")
+
