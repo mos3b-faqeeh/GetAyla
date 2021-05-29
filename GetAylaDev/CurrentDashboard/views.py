@@ -141,3 +141,9 @@ def dashboard (request):
     TotalInteraction=NumComm1 + NumLikes1
 
     return render(request, 'dashboard.html', {'NumComm1':NumComm1,'NumLikes1':NumLikes1,'NumFollowers':NumFollowers,'NumPosts':NumPosts,'Pic':Pic,'TotalInteraction':TotalInteraction})
+
+
+
+
+def targeting (request):
+    return render(request, 'targeting.html', {})
