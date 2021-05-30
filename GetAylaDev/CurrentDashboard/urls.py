@@ -5,5 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.dashboard, name="dashboard"),
     path('targeting/', views.targeting, name="targeting"),
+    path('engagement/', views.engagement, name="engagement"),
 
 ]

@@ -147,3 +147,9 @@ def dashboard (request):
 
 def targeting (request):
     return render(request, 'targeting.html', {})
+
+
+
+
+def engagement (request):
+    return render(request, 'engagement.html', {})
