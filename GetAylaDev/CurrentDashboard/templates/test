@@ -1,0 +1,42 @@
+ <div class="row">
+    <div class="col-md-6">
+      Filter profiles by their Engagement rate :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="1000" value="50" class="slider" id="engagement">
+          <p>Profiles have more than: <span id="engagementValue"></span> Engagements </p>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-6">
+      Select how many followers your target audience has :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="100" value="50" class="slider" id="followers">
+          <p>Profiles have more than: <span id="followersValue"></span> followers </p>
+        </div>
+      </div>
+    </div>
+        </div>
+        </div>
+   <div class="card mt-4">
+
+    <div class="row">
+    <div class="col-md-6">
+      Select how many followings your target audience has :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="100" value="50" class="slider" id="followings">
+          <p>Profiles have more than: <span id="followingsValue"></span> followings </p>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-6">
+      Select target audience based on their number of posts :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="100" value="50" class="slider" id="posts">
+          <p>Profiles have more than: <span id="postsValue"></span> posts </p>
+        </div>
+      </div>
+    </div>
