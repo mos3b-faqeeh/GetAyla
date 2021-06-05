@@ -570,9 +570,10 @@ AYLA's smart AI algorithm actively engages with your existing Followers to keep 
 
 
 
-<div class="row">
-        <div class="col-12 col-xl-4">
-          <div class="card h-60">
+ <div class="row">
+
+        <div class="col-12 col-xl-4 mt-4">
+          <div class="card">
             <div class="card-header pb-0 p-3">
               <h6 class="mb-0">Activity Settings</h6>
             </div>
@@ -608,7 +609,7 @@ AYLA's smart AI algorithm actively engages with your existing Followers to keep 
             </div>
           </div>
         </div>
-         <div class="col-12 col-xl-4">
+         <div class="col-12 col-xl-4 mt-4">
           <div class="card h-60">
             <div class="card-header pb-0 p-3">
               <h6 class="mb-0">Current Audience Specifications</h6>
@@ -645,7 +646,7 @@ AYLA's smart AI algorithm actively engages with your existing Followers to keep 
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-4">
+        <div class="col-12 col-xl-4 mt-4">
           <div class="card h-60">
             <div class="card-header pb-0 p-3">
               <h6 class="mb-0">Extra Options</h6>
@@ -655,21 +656,26 @@ AYLA's smart AI algorithm actively engages with your existing Followers to keep 
                 <li class="list-group-item border-0 px-0">
                   <div class="form-check form-switch ps-0">
                     <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked="">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Build your audience by using your location to get targets</label>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Use your location to get targets</label>
                   </div>
                 </li>
-
-
                 <li class="list-group-item border-0 px-0">
                   <div class="form-check form-switch ps-0">
                     <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Only public profiles</label>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Use your competitors to get targets</label>
+                  </div>
+                </li>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Target only public profiles</label>
                   </div>
                 </li>
                 <li class="list-group-item border-0 px-0">
                   <div class="form-check form-switch ps-0">
                     <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked="">
-                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Use our AI algorithms to get best audience from your followers</label>
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Use our AI algorithms to get best targets</label>
                   </div>
                 </li>
               </ul>
@@ -680,11 +686,12 @@ AYLA's smart AI algorithm actively engages with your existing Followers to keep 
 
       </div>
 
-<div class="card mt-4">
 
 
-  <div class="row">
-    <div class="col-md-6">
+<div class="row mt-4">
+        <div class="col-xl-6 col-sm-6 mt-4">
+          <div class="card">
+            <div class="card-body p-3">
       <label for="inputState">Gender</label>
     <div class="col-auto my-1">
       <select class="form-control">
@@ -694,9 +701,14 @@ AYLA's smart AI algorithm actively engages with your existing Followers to keep 
         <option value="3">Interaction With All</option>
       </select>
     </div>
-    </div>
-    <div class="col-md-6">
-      <label for="inputState">Last post not older than</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-sm-6 mt-4">
+          <div class="card">
+            <div class="card-body p-3">
+                    <label for="inputState">Last post not older than</label>
     <div class="col-auto my-1">
       <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
       <select class="form-control">
@@ -706,58 +718,87 @@ AYLA's smart AI algorithm actively engages with your existing Followers to keep 
         <option value="3">1 day</option>
       </select>
     </div>
-    </div>
-     </div>
-  </div>
-   <div class="card mt-4">
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="row">
-    <div class="col-md-6">
-      Select profiles based on their Engagement rate :
+
+
+
+
+
+
+  <div class="row mt-4">
+        <div class="col-xl-6 col-sm-6 mt-4">
+          <div class="card">
+            <div class="card-body p-3">
+      <label> Select profiles based on their Engagement rate :</label>
       <div class="col-auto my-1">
         <div class="slidecontainer">
          <input type="range" min="1" max="1000" value="50" class="slider" id="engagement">
           <p>Profiles have more than: <span id="engagementValue"></span> Engagements </p>
         </div>
       </div>
-    </div>
-        <div class="col-md-6">
-      Select how many followers your current audience has :
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-sm-6 mt-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <label>Select how many followers your target audience has :</label>
+
       <div class="col-auto my-1">
         <div class="slidecontainer">
-         <input type="range" min="1" max="1000000" value="50" class="slider" id="followers">
+         <input type="range" min="1" max="100000" value="50" class="slider" id="followers">
           <p>Profiles have more than: <span id="followersValue"></span> followers </p>
         </div>
       </div>
-    </div>
+            </div>
+          </div>
         </div>
-        </div>
-   <div class="card mt-4">
+      </div>
 
-    <div class="row">
-    <div class="col-md-6">
-      Select how many followings your current audience has :
+
+
+<div class="row mt-4">
+        <div class="col-xl-6 col-sm-6 mt-4">
+          <div class="card">
+            <div class="card-body p-3">
+      <label> Select how many followings your target audience has :</label>
+
       <div class="col-auto my-1">
         <div class="slidecontainer">
          <input type="range" min="1" max="100000" value="50" class="slider" id="followings">
           <p>Profiles have more than: <span id="followingsValue"></span> followings </p>
         </div>
       </div>
-    </div>
-        <div class="col-md-6">
-      Select current audience based on their number of posts :
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-sm-6 mt-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <label>Select target audience based on their number of posts :</label>
+
       <div class="col-auto my-1">
         <div class="slidecontainer">
-         <input type="range" min="1" max="100" value="50" class="slider" id="posts">
+         <input type="range" min="1" max="1000" value="50" class="slider" id="posts">
           <p>Profiles have more than: <span id="postsValue"></span> posts </p>
         </div>
       </div>
-    </div>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
+
+
 
 </form>
-
 
 
 
