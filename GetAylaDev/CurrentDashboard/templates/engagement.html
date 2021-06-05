@@ -33,10 +33,63 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- CSS Files -->
   <link id="pagestyle" href="{% static 'NewDashboard/assets/css/soft-ui-dashboard.css' %}" rel="stylesheet" />
+
+
+
+
+
+  <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
+></script>
+
+
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #cb0c9f;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #cb0c9f;
+  cursor: pointer;
+}
+</style>
+
+
+
+
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-left ms-3" id="sidenav-main">
+<!-- ***********************************************  Side content  ************************************************************** -->
+
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-left ms-3" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="../pages/dashboard.html">
@@ -48,7 +101,7 @@
     <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
            <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  active" href="{% url 'dashboard'  %}">
+          <a class="nav-link" href="{% url 'dashboard'  %}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -67,7 +120,7 @@
             <span class="nav-link-text ms-1">Summary</span>
           </a>
        <li class="nav-item">
-          <a class="nav-link  active" href="{% url 'targeting'  %}">
+          <a class="nav-link" href="{% url 'targeting'  %}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -124,8 +177,14 @@
       </div>
     </div>
   </aside>
+
+<!-- ***********************************************  END Side content  ************************************************************** -->
+
+
   <div class="main-content position-relative bg-gray-100">
     <!-- Navbar -->
+    <!-- ***********************************************  Upper Navbar content  ************************************************************** -->
+
     <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
       <div class="container-fluid py-1">
         <nav aria-label="breadcrumb">
@@ -242,54 +301,104 @@
         </div>
       </div>
     </nav>
-    <!-- End Navbar -->
+<!-- ***********************************************  END Side content  ************************************************************** -->
+ <!-- ***********************************************  content box --the middle  ************************************************************** -->
+ <!-- ***********************************************  TEXT CONTENT--content box --the middle  ************************************************************** -->
+
     <div class="container-fluid">
 
       <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('{% static 'NewDashboard/assets/img/curved-images/curved0.jpg' %}'); background-position-y: 50%;">
         <span class="mask bg-gradient-primary opacity-6"></span>
       </div>
-      <div class="card card-body blur shadow-blur mx-4 mt-n6">
+   <div class="card card-body blur shadow-blur mx-4 mt-n6">
         <div class="row gx-4">
-          <div class="col-auto">
-
-          </div>
-          <div class="col-auto my-auto">
+<div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
                Smart Engagement
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
-Our AI algorithm gives us the list of current followers you have. be engaging with them your posts will get more notice which leads into high views and more spreading. We will engage you with this profiles
-So you can get them as a more active followers. You can deactivate the ones yuo don't like
+AYLA's smart AI algorithm actively engages with your existing Followers to keep you in front of them simulating natural behavior. We do this by liking content relevant to your brand or common business interests. You can deactivate any profiles that you don't want to engage with.
               </p>
             </div>
           </div>
+          <div class="col-sm-4 col-8 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+            <div class="nav-wrapper position-relative end-0">
+
+
+<!-- Tabs content -->
+
+<!-- Tabs content -->
+            </div>
           </div>
+        </div>
       </div>
     </div>
+ <!-- ***********************************************  END TEXT CONTENT--content box --the middle  ************************************************************** -->
+
+  <!-- ***********************************************  dynamic CONTENT--content box --the middle  ************************************************************** -->
+
     <div class="container-fluid py-4">
 
 
 
 
 
+<ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link active"
+      id="ex3-tab-1"
+      data-mdb-toggle="tab"
+      href="#ex3-tabs-1"
+      role="tab"
+      aria-controls="ex3-tabs-1"
+      aria-selected="true"
+      >Dashboard</a
+    >
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link"
+      id="ex3-tab-3"
+      data-mdb-toggle="tab"
+      href="#ex3-tabs-3"
+      role="tab"
+      aria-controls="ex3-tabs-3"
+      aria-selected="false"
+      >Configure</a
+    >
+  </li>
+</ul>
+
+  <!-- ***********************************************  END dynamic CONTENT--content box --the middle  ************************************************************** -->
+ <!-- ***********************************************  END content box --the middle  ************************************************************** -->
 
 
 
+ <!-- ***********************************************  Chart data   ************************************************************** -->
 
+<div class="tab-content" id="ex2-content">
+  <!-- ***********************************************   Tab 1 data Chart data   ************************************************************** -->
 
-
-
+  <div
+    class="tab-pane fade show active"
+    id="ex3-tabs-1"
+    role="tabpanel"
+    aria-labelledby="ex3-tab-1"
+  >
         <div class="row">
-         <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+     <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
           <div class="card">
             <div class="card-header pb-0">
               <div class="row">
-            <div class="card-header pb-0 p-3">
-              <h6 class="mb-0">Current Prospect Profiles</h6>
-            </div>
-            <div class="card-body p-3">
-              <h6 class="text-body text-xs font-weight-bolder">Our AI selected profiles from your followers might be your next customer</h6>
+                <div class="col-lg-6 col-7">
+                  <h6>Current Prospect Profiles</h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1">Our AI selected profiles from your followers might be your next customer</span>
+                  </p>
                 </div>
                 <div class="col-lg-6 col-5 my-auto text-end">
                   <div class="dropdown float-lg-end pe-4">
@@ -386,8 +495,6 @@ So you can get them as a more active followers. You can deactivate the ones yuo 
             <div class="card-header pb-0 p-3">
               <h6 class="mb-0">Interactions</h6>
               <h7 class="text-body text-xs font-weight-bolder">Profiles they received our interaction based on their relevance score </h7>
-
-
             </div>
             <div class="card-body p-3">
               <ul class="list-group">
@@ -423,7 +530,7 @@ So you can get them as a more active followers. You can deactivate the ones yuo 
             </div>
           </div>
         </div>
-
+  </div>
 
         <div class="col-12 mt-4">
           <div class="card mb-4">
@@ -450,9 +557,243 @@ So you can get them as a more active followers. You can deactivate the ones yuo 
           </div>
         </div>
       </div>
+   <!-- ***********************************************  END Tab 1 data Chart data   ************************************************************** -->
+   <!-- ***********************************************   Tab 2 data Chart data   ************************************************************** -->
+
+ <div
+    class="tab-pane fade"
+    id="ex3-tabs-3"
+    role="tabpanel"
+    aria-labelledby="ex3-tab-3"
+  >
+<form>
+<div class="card mt-4">
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <label for="inputState">Gender</label>
+    <div class="col-auto my-1">
+      <select class="form-control">
+        <option selected>Interaction With All</option>
+        <option value="1">Female</option>
+        <option value="2">Male</option>
+        <option value="3">Interaction With All</option>
+      </select>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputState">Last post not older than</label>
+    <div class="col-auto my-1">
+      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+      <select class="form-control">
+        <option selected>All profiles</option>
+        <option value="1">30 days</option>
+        <option value="2">7 days</option>
+        <option value="3">1 day</option>
+      </select>
+    </div>
+    </div>
+     </div>
+  </div>
+   <div class="card mt-4">
+
+    <div class="row">
+    <div class="col-md-6">
+      Select profiles based on their Engagement rate :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="1000" value="50" class="slider" id="engagement">
+          <p>Profiles have more than: <span id="engagementValue"></span> Engagements </p>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-6">
+      Select how many followers your current audience has :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="1000000" value="50" class="slider" id="followers">
+          <p>Profiles have more than: <span id="followersValue"></span> followers </p>
+        </div>
+      </div>
+    </div>
+        </div>
+        </div>
+   <div class="card mt-4">
+
+    <div class="row">
+    <div class="col-md-6">
+      Select how many followings your current audience has :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="100000" value="50" class="slider" id="followings">
+          <p>Profiles have more than: <span id="followingsValue"></span> followings </p>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-6">
+      Select current audience based on their number of posts :
+      <div class="col-auto my-1">
+        <div class="slidecontainer">
+         <input type="range" min="1" max="100" value="50" class="slider" id="posts">
+          <p>Profiles have more than: <span id="postsValue"></span> posts </p>
+        </div>
+      </div>
+    </div>
+        </div>
+        </div>
+
+</form>
 
 
 
+
+
+
+
+
+
+
+<div class="row">
+        <div class="col-12 col-xl-4">
+          <div class="card h-60">
+            <div class="card-header pb-0 p-3">
+              <h6 class="mb-0">Activity Settings</h6>
+            </div>
+            <div class="card-mt p-3">
+              <h6 class="text-uppercase text-body text-xs font-weight-bolder">Type of Interactions you want Ayla do</h6>
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Likes</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Story Views</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Comment Likes</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Organic Actions™ By our AI algorithms</label>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+         <div class="col-12 col-xl-4">
+          <div class="card h-60">
+            <div class="card-header pb-0 p-3">
+              <h6 class="mb-0">Current Audience Specifications</h6>
+            </div>
+            <div class="card-mt p-3">
+              <h6 class="text-uppercase text-body text-xs font-weight-bolder">Profile types</h6>
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Must have profile picture</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Must be business account</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Must be verified</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Selected by By our AI algorithms</label>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-4">
+          <div class="card h-60">
+            <div class="card-header pb-0 p-3">
+              <h6 class="mb-0">Extra Options</h6>
+            </div>
+            <div class="card-mt p-3">
+              <ul class="list-group">
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault">Build your audience by using your location to get targets</label>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault1">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault1">Only public profiles</label>
+                  </div>
+                </li>
+                <li class="list-group-item border-0 px-0">
+                  <div class="form-check form-switch ps-0">
+                    <input class="form-check-input ms-auto" type="checkbox" id="flexSwitchCheckDefault2" checked="">
+                    <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault2">Use our AI algorithms to get best audience from your followers</label>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- ***********************************************   END Tab 2 data Chart data   ************************************************************** -->
+
+          </div>
+
+     <!-- ***********************************************   END Chart data   ************************************************************** -->
+
+
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+
+<!-- Tabs content -->
+     <!-- ***********************************************   Footer data   ************************************************************** -->
 
       <footer class="footer pt-3">
         <div class="container-fluid">
@@ -638,6 +979,41 @@ So you can get them as a more active followers. You can deactivate the ones yuo 
       },
     });
   </script>
+
+<script>
+
+
+var slider = document.getElementById("engagement");
+var output = document.getElementById("engagementValue");
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+var slider2 = document.getElementById("followers");
+var output2 = document.getElementById("followersValue");
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+}
+
+
+var slider3 = document.getElementById("followings");
+var output3 = document.getElementById("followingsValue");
+
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
+}
+
+var slider4 = document.getElementById("posts");
+var output4 = document.getElementById("postsValue");
+
+slider4.oninput = function() {
+  output4.innerHTML = this.value;
+}
+
+</script>
+
 </body>
 
 </html>
