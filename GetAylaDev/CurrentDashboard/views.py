@@ -153,3 +153,6 @@ def targeting (request):
 
 def engagement (request):
     return render(request, 'engagement.html', {})
+
+def instaConn (request):
+    return render(request, 'instaConn.html', {})
