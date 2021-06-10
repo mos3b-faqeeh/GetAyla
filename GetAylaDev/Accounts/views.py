@@ -24,10 +24,12 @@ def login (request):
 
         if user is not None:
             auth.login(request,user)
-            return redirect('/')
+            return redirect('/mydash')
+
         else:
             messages.info(request, 'Invalid Credentials')
             return redirect('login')
+
     else:
         return render(request, 'login.html', {})
         messages.info(request, 'Username should be your E-mail')
@@ -67,5 +69,12 @@ def register (request):
 
 
 
+
+def myprofile (request):
+    return render(request, 'myprofile.html', {})
+
+
+def updatePass (request):
+    return render(request, 'updatePass.html', {})
 
 

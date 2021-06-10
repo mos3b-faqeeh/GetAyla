@@ -1,0 +1,86 @@
+{% extends "header.html" %}   // Inherits all the components from base template, including the header and footer
+{% block engagement %}class="nav-link"{% endblock %}
+{% block targeting %}class="nav-link"{% endblock %}
+{% block dashboard %}class="nav-link"{% endblock %}
+{% block instaConn %}class="nav-link"{% endblock %}
+{% block myprofile %}class="nav-link active"{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<main class="main-content mt-1">
+
+
+
+    <div class="container-fluid my-3 py-3">
+      <div class="row mb-5">
+
+        <div class="col-lg-9 mt-lg-0 mt-4">
+          <!-- Card Profile -->
+
+          <!-- Card Basic Info -->
+
+          <!-- Card Change Password -->
+          <div class="card mt-4" id="password">
+            <div class="card-header">
+              <h5>Change Password</h5>
+            </div>
+            <div class="card-body pt-0">
+              <label class="form-label">Current password</label>
+              <div class="form-group">
+                <input class="form-control" type="password" placeholder="Current password" onfocus="focused(this)" onfocusout="defocused(this)">
+              </div>
+              <label class="form-label">New password</label>
+              <div class="form-group">
+                <input class="form-control" type="password" placeholder="New password" onfocus="focused(this)" onfocusout="defocused(this)">
+              </div>
+              <label class="form-label">Confirm new password</label>
+              <div class="form-group">
+                <input class="form-control" type="password" placeholder="Confirm password" onfocus="focused(this)" onfocusout="defocused(this)">
+              </div>
+              <h5 class="mt-5">Password requirements</h5>
+              <p class="text-muted mb-2">
+                Please follow this guide for a strong password:
+              </p>
+              <ul class="text-muted ps-4 mb-0 float-start">
+                <li>
+                  <span class="text-sm">One special characters</span>
+                </li>
+                <li>
+                  <span class="text-sm">Min 6 characters</span>
+                </li>
+                <li>
+                  <span class="text-sm">One number (2 are recommended)</span>
+                </li>
+                <li>
+                  <span class="text-sm">Change it often</span>
+                </li>
+              </ul>
+              <button class="btn bg-gradient-dark btn-sm float-end mt-6 mb-0">Update password</button>
+            </div>
+          </div>
+          <!-- Card Change Password -->
+
+          <!-- Card Notifications -->
+
+          <!-- Card Sessions -->
+
+          <!-- Card Delete Account -->
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+     <!-- ***********************************************   END Chart data   ************************************************************** -->
+
+
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+
+<!-- Tabs content -->
+     <!-- ***********************************************   Footer data   ************************************************************** -->
+{% endblock %}

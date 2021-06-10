@@ -3,7 +3,9 @@ from haralyzer import HarParser, HarPage
 import requests
 
 
-def har_parser(file):
+
+
+def har_parser_response(file):
     with open(file, 'r') as f:
         har_parser = HarParser(json.loads(f.read()))
     results = []
@@ -15,41 +17,14 @@ def har_parser(file):
                 url = har["request"]["url"]
                 headers = {}
                 if "https://www.instagram.com/graphql/query/" in url:
-                    har_headers = har["request"]["headers"]
-                    for head in har_headers:
-                        if head["name"].startswith(":"):
-                            headers[head["name"][1:]] = head["value"]
-                        else:
-                            headers[head["name"]] = head["value"]
-                    response = requests.get(url, headers=headers).json()
-                    tmp[f"url_{count}"] = response
-                    print("***********************", "\n", "*************************")
-                    print("***********************", "\n", "*************************")
-
-                    print("***********************", "\n", "*************************")
-
-                    print("***********************", "\n", "*************************")
-
-                    print(har["request"]["url"], "\n")
-
-                    print(tmp)
-
+                    response = har["response"]["content"]["text"]
+                    tmp[f"url_{count}"] = json.loads(response)
                     results.append(tmp)
                     count += 1
-                    print("\n")
-                    print("\n")
-                    print("\n")
-                    print("\n")
-                    print("\n")
-                    print("\n")
-                    print("\n")
-                    print("\n")
-
             return json.dumps(results)
     except Exception as e:
         print(e)
 
 
-
 file = "NewDataJinkstattoo.har"
-print(har_parser(file))
+print(har_parser_response(file))
