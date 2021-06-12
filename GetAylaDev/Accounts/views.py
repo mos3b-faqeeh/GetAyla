@@ -78,3 +78,13 @@ def updatePass (request):
     return render(request, 'updatePass.html', {})
 
 
+def updatePayment (request):
+    return render(request, 'updatePayment.html', {})
+
+def updateNum (request):
+    return render(request, 'updateNum.html', {})
+
+def updateEmail (request):
+    return render(request, 'updateEmail.html', {})
+
+

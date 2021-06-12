@@ -157,5 +157,3 @@ def engagement (request):
 def instaConn (request):
     return render(request, 'instaConn.html', {})
 
-def myprofile (request):
-    return render(request, 'myprofile.html', {})
