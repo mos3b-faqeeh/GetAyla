@@ -1,0 +1,134 @@
+
+.animationWrapper {
+     box-shadow: 0 2px 40px -5px rgb(42 54 61 / 30%);
+     padding: 2rem;
+     border-radius: 1rem;
+     /* overflow: hidden; */
+   }
+   .animationBox {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 0;
+   }
+   .animationBox.headings h4{
+     font-size: 18px;
+     margin-bottom: 15px;
+   }
+   .animationBox.top {
+     margin-bottom: 10px;
+   }
+   .animationBox.top > p {
+     text-align: center;
+     margin-bottom: 0;
+   }
+   
+   .animationBox.middle {
+     margin-bottom: 10px;
+   }
+   
+   .imgName {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     justify-content: space-between;
+   }
+   .imgName p{
+        margin-bottom: 0;
+   }
+   
+   .animationBox.bottom .imgName {
+     margin-bottom: 1rem;
+   }
+   
+   .dFlex {
+     display: flex;
+     gap: 12px;
+   }
+   
+   .animationBox.bottom .dFlex figure figcaption {
+     position: relative;
+   }
+   .dFlex figure > img {
+     width: 44px;
+     height: 44px;
+   }
+   
+   .bolder {
+     font-size: 16px;
+     display: block;
+     line-height: 20px;
+   }
+   .bold {
+     font-size: 12px;
+   }
+   .light {
+     color: #ccc;
+     font-size: 15px;
+   }
+   .circle-img {
+     width: 44px;
+     height: 44px;
+     border-radius: 50%;
+   }
+   .small-img {
+     width: 44px;
+     height: 44px;
+   }
+   
+   .small-circle-img {
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     position: absolute;
+     bottom: -1rem;
+     left: 0rem;
+   }
+   
+   .small-circle-img ~ img {
+     width: 20px;
+     height: 20px;
+     position: absolute;
+     bottom: -1rem;
+     left: 16px;
+   }
+   
+   .fake-container {
+     position: relative;
+   }
+   .fake-container .fake {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+   }
+   
+   .fake-containerScndRow {
+     position: relative;
+   }
+   .fake-containerScndRow .fake {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+   }
+   
+   /* vro css */
+   
+   section.animationWrapper {
+     position: relative;
+   }
+   
+   section.animationWrapper span:first-child {
+     position: absolute;
+     border-radius: 1rem;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     display: block;
+     z-index: 101010;
+     background-color: #fff;
+   }
+   
