@@ -26,7 +26,7 @@ SECRET_KEY = 'l%59yxntyao4^_z3-73$%1z63i3whi_g(dky)%f968d7rwxyxb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io']
+ALLOWED_HOSTS = ['198.199.89.91','getayla.io','www.getayla.io', '127.0.0.1']
 #ALLOWED_HOSTS = ['*']
 
 
@@ -92,7 +92,12 @@ DATABASES = {
         'PORT': '',
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 
@@ -137,4 +142,14 @@ STATICFILES_DIRS=[
 ]
 STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
 
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Mahmoud.Laban@gmail.com'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
