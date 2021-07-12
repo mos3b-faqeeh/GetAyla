@@ -90,7 +90,7 @@ def commentsAnalyzer(data):
 def dashboard (request):
     module_dir = os.path.dirname(__file__)
     file_path = os.path.join(module_dir, 'jinkstattoosandcoffee.har')  # full path to text.
-    data_file = open(file_path , 'r')
+    data_file = open(file_path , 'r', encoding='utf8')
     har_parser = HarParser(json.loads(data_file.read()))
 
     results = []
