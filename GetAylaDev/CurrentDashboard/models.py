@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.conf import settings
 # Create your models here.
 
 
@@ -14,6 +14,7 @@ class InstaProfiles(models.Model):
     country= models.CharField(max_length=200)
     PostalCode= models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 
 
@@ -30,6 +31,7 @@ class followers(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     InstagramUserNameCustomer = models.ForeignKey(InstaProfiles,on_delete=models.SET_DEFAULT,default=1)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 
 class targets(models.Model):
@@ -41,6 +43,7 @@ class targets(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     InstagramUserNameCustomer = models.ForeignKey(InstaProfiles,on_delete=models.SET_DEFAULT,default=1)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 
 
@@ -51,6 +54,7 @@ class CustomerInteractionsOnFollowers(models.Model):
     interactionType=models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     InstagramUserNameCustomer = models.ForeignKey(InstaProfiles,on_delete=models.SET_DEFAULT,default=1)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 
 class CustomerInteractionsOnTarget(models.Model):
@@ -58,6 +62,7 @@ class CustomerInteractionsOnTarget(models.Model):
     interactionType=models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     InstagramUserNameCustomer = models.ForeignKey(InstaProfiles,on_delete=models.SET_DEFAULT,default=1)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 
 
 

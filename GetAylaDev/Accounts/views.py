@@ -11,15 +11,16 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 
 from .tokens import account_activation_token
-
+from django.contrib.auth.decorators import login_required
+from .decorators import unauthenticated_user
 
 # Create your views here.
-
+@login_required(login_url='login')
 def logout(request):
     auth.logout(request)
     return redirect('/')
 
-
+@unauthenticated_user
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -45,7 +46,7 @@ def login(request):
     else:
         return render(request, 'login.html', {})
 
-
+@unauthenticated_user
 def register(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
@@ -94,23 +95,23 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation link is invalid!')
 
-
+@login_required(login_url='login')
 def myprofile(request):
     return render(request, 'myprofile.html', {})
 
-
+@login_required(login_url='login')
 def updatePass(request):
     return render(request, 'updatePass.html', {})
 
-
+@login_required(login_url='login')
 def updatePayment(request):
     return render(request, 'updatePayment.html', {})
 
-
+@login_required(login_url='login')
 def updateNum(request):
     return render(request, 'updateNum.html', {})
 
-
+@login_required(login_url='login')
 def updateEmail(request):
     return render(request, 'updateEmail.html', {})
 

@@ -10,7 +10,8 @@ from urllib.request import urlopen
 from urllib.request import urlopen, Request
 from django.core.files import File
 import os
-
+from django.contrib.auth.decorators import login_required
+from .models import *
 
 
 
@@ -86,7 +87,7 @@ def commentsAnalyzer(data):
 
 
 
-
+@login_required(login_url='login')
 def dashboard (request):
     module_dir = os.path.dirname(__file__)
     file_path = os.path.join(module_dir, 'jinkstattoosandcoffee.har')  # full path to text.
@@ -140,20 +141,28 @@ def dashboard (request):
     print(Pic, "\n")
     TotalInteraction=NumComm1 + NumLikes1
 
+    #NumberOfFollowers=targets.objects.filter(list__targets__user=user)
+    #NumberOfFollowers = request.user.targets.objects.all()
+    NumberOfFollowers = request.user.targets_set.all()
+
+
+    print(NumberOfFollowers, "\n")
+
     return render(request, 'dashboard.html', {'NumComm1':NumComm1,'NumLikes1':NumLikes1,'NumFollowers':NumFollowers,'NumPosts':NumPosts,'Pic':Pic,'TotalInteraction':TotalInteraction})
 
 
 
-
+@login_required(login_url='login')
 def targeting (request):
     return render(request, 'targeting.html', {})
 
 
 
-
+@login_required(login_url='login')
 def engagement (request):
     return render(request, 'engagement.html', {})
 
+@login_required(login_url='login')
 def instaConn (request):
     return render(request, 'instaConn.html', {})
 
