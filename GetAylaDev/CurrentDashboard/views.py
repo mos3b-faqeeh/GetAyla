@@ -12,155 +12,180 @@ from django.core.files import File
 import os
 from django.contrib.auth.decorators import login_required
 from .models import *
-
-
-
-def pic_link(data):
-    try:
-        num1=0
-        Req_json_Data = json.loads(data)
-        num1=Req_json_Data['data']['shortcode_media']['owner']['profile_pic_url']
-        #print(num1)
-    except Exception as e:
-        print(e)
-    return num1
-
-
-
-def followed_by(data):
-    try:
-        num1=0
-        Req_json_Data = json.loads(data)
-        num1=Req_json_Data['data']['shortcode_media']['owner']['edge_followed_by']['count']
-        #print(num1)
-    except Exception as e:
-        print(e)
-    return num1
-
-def TotalPosts(data):
-    try:
-        num1=0
-        Req_json_Data = json.loads(data)
-        num1=Req_json_Data['data']['shortcode_media']['owner']['edge_owner_to_timeline_media']['count']
-        #print(num1)
-    except Exception as e:
-        print(e)
-    return num1
-
-def likesAnalyzer(data):
-
-    try:
-        num1=0
-        Req_json_Data = json.loads(data)
-
-        num1=Req_json_Data['data']['shortcode_media']['edge_media_preview_like']['count']
-        #print(num1)
-
-
-    except Exception as e:
-        print(e)
-    return num1
-
-
-
-def commentsAnalyzer(data):
-
-    try:
-        num2=0
-        Req_json_Data = json.loads(data)
-        num2=Req_json_Data['data']['shortcode_media']['edge_media_to_parent_comment']['count']
-        #print(num2)
-
-
-    except Exception as e:
-        print(e)
-    return num2
-
-
-
-
-
-
-
-
-
+from django.utils import timezone
+from datetime import timedelta
+from django.db.models import Sum
+from django.db.models.functions import Coalesce
+import numpy as np
 
 
 
 @login_required(login_url='login')
 def dashboard (request):
-    module_dir = os.path.dirname(__file__)
-    file_path = os.path.join(module_dir, 'jinkstattoosandcoffee.har')  # full path to text.
-    data_file = open(file_path , 'r', encoding='utf8')
-    har_parser = HarParser(json.loads(data_file.read()))
-
-    results = []
-    counter = 0
-    NumComm1 = 0
-    NumComm = 0
-
-    NumLikes = 0
-    NumLikes1 = 0
-
-    try:
-        if har_parser:
-            for har in har_parser.har_data['entries']:
-                url = har["request"]["url"]
-                if "https://www.instagram.com/graphql/query/" in url:
-                    print("**************************** NEW DATA***************************")
-
-                    print(har["request"]["url"], "\n")
-
-                    responseData = har["response"]["content"]["text"]
-                    # print(NumComm, "\n")
-                    NumComm = commentsAnalyzer(responseData)
-                    NumLikes = likesAnalyzer(responseData)
-                    NumComm1 = NumComm1 + NumComm
-                    NumLikes1 = NumLikes1 + NumLikes
-
-                    NumFollowers = followed_by(responseData)
-                    NumPosts = TotalPosts(responseData)
-                    Pic = pic_link(responseData)
-
-                    # NumComm1=NumComm+NumComm1
-                    # NumLikes=likesAnalyzer(responseData)+NumLikes
-
-                    counter = counter + 1
-
-                    results.append(har["request"]["url"])
-
-    except Exception as e:
-        print(e)
-
-    print(NumComm1, "\n")
-    print(NumLikes1, "\n")
-
-    print(NumFollowers, "\n")
-    print(NumPosts, "\n")
-
-    print(Pic, "\n")
-    TotalInteraction=NumComm1 + NumLikes1
-
-    #NumberOfFollowers=targets.objects.filter(list__targets__user=user)
-    #NumberOfFollowers = request.user.targets.objects.all()
-    NumberOfFollowers = request.user.targets_set.all()
+    current_user=request.user
+    userId=current_user.id
+    ProfileInfo =profileDesc.objects.filter(owner=userId).order_by('-id')[:1]
+    NewFolowersCountSet =Newfollowers.objects.filter(owner=userId)
+    InteractionsOnFollowersCountSet =CustomerInteractionsOnFollowers.objects.filter(owner=userId)
+    InteractionsOnOnTargetCountSet =CustomerInteractionsOnTarget.objects.filter(owner=userId)
+    InteractionsYouGotCountSet =profileDesc.objects.filter(owner=userId)
 
 
-    print(NumberOfFollowers, "\n")
 
-    return render(request, 'dashboard.html', {'NumComm1':NumComm1,'NumLikes1':NumLikes1,'NumFollowers':NumFollowers,'NumPosts':NumPosts,'Pic':Pic,'TotalInteraction':TotalInteraction})
+    CountOfFollowers=0
+    CountOfFollowing=0
+    InteractionsyouGot=0
+
+    for list in ProfileInfo:
+        CountOfFollowers=list.totalFollowers
+        CountOfFollowing=list.totalFollowing
+        InteractionsyouGot=list.totalInteractionsyouGot
+        #print(list.totalFollowers, "\n")
+
+        #count=list.totalFollowers+count
+
+
+    print(CountOfFollowers, "\n")
+    print(current_user.id, "\n")
+    print(CountOfFollowing, "\n")
+    print(InteractionsyouGot, "\n")
+
+    #now = timezone.now()
+
+    now = timezone.now()
+    NewFolowersCount = NewFolowersCountSet.aggregate(
+        total=models.Count('id'),
+        today=models.Count('id', filter=models.Q(created__date=now.date())),
+        yesterday=models.Count('id', filter=models.Q(created__date__gte=(now - timedelta(hours=24)).date())),
+        last_7_day=models.Count('id', filter=models.Q(created__date__gte=(now - timedelta(days=7)).date())),
+    )
+
+    InteractionsOnFollowersCount = InteractionsOnFollowersCountSet.aggregate(
+        total=models.Count('id'),
+        today=models.Count('id', filter=models.Q(created__date=now.date())),
+        yesterday=models.Count('id', filter=models.Q(created__date__gte=(now - timedelta(hours=24)).date())),
+        last_7_day=models.Count('id', filter=models.Q(created__date__gte=(now - timedelta(days=7)).date())),
+    )
+    InteractionsOnOnTargetCount = InteractionsOnOnTargetCountSet.aggregate(
+        total=models.Count('id'),
+        today=models.Count('id', filter=models.Q(created__date=now.date())),
+        yesterday=models.Count('id', filter=models.Q(created__date__gte=(now - timedelta(hours=24)).date())),
+        last_7_day=models.Count('id', filter=models.Q(created__date__gte=(now - timedelta(days=7)).date())),
+
+    )
+
+    interestFollower=' '
+    NewFolowersList = NewFolowersCountSet.filter(created__date__gte=(now - timedelta(days=7)).date())
+    for list in NewFolowersList:
+        interestFollower=list.interest+' '+interestFollower
+        print(interestFollower, "\n")
+
+    number=1
+    YourInteractionsOnMonths=[]
+    while number <= 12:
+        data=InteractionsOnOnTargetCountSet.filter(created__month=number).count()
+        data1=InteractionsOnFollowersCountSet.filter(created__month=number).count()
+        data3=data+data1
+        #print("month= ",number,data, "\n")
+        YourInteractionsOnMonths.append(data3)
+        number = number + 1
+
+
+    number=1
+    InteractionsYouGotOnMonth=[]
+    while number <= 12:
+        data=InteractionsYouGotCountSet.filter(created__month=number).aggregate(Sum('totalInteractionsyouGot'))
+        if data['totalInteractionsyouGot__sum'] is None:
+            InteractionsYouGotOnMonth.append(0)
+        else :
+            InteractionsYouGotOnMonth.append(data['totalInteractionsyouGot__sum'])
+        number = number + 1
+    #print(YourInteractionsOnMonths, "\n")
+
+    #print(InteractionsYouGotOnMonth, "\n")
+
+    #print(ProfileInfo, "\n")
+
+
+
+
+
+
+    return render(request, 'dashboard.html', {'InteractionsyouGot':InteractionsyouGot,
+                                              'YourInteractionsOnMonths':YourInteractionsOnMonths,'InteractionsYouGotOnMonth':InteractionsYouGotOnMonth,
+                                              'NewFolowersCount': NewFolowersCount,'InteractionsOnFollowersCount':InteractionsOnFollowersCount,
+                                              'InteractionsOnOnTargetCount':InteractionsOnOnTargetCount,'NewFolowersList':NewFolowersList,
+                                              'ProfileInfo':ProfileInfo,'interestFollower':interestFollower})
 
 
 
 @login_required(login_url='login')
 def targeting (request):
-    return render(request, 'targeting.html', {})
+    now = timezone.now()
+    current_user=request.user
+    userId=current_user.id
+
+    InteractionsOnOnTargetCountSet =CustomerInteractionsOnTarget.objects.filter(owner=userId)
+    TargetCountSet =targets.objects.filter(owner=userId)
+
+    TargetList = TargetCountSet.filter(created__date__gte=(now - timedelta(days=7)).date())
+    InteractionsOnOnTargetUsers = InteractionsOnOnTargetCountSet.filter(
+        created__date__gte=(now - timedelta(days=7)).date())
+
+
+
+    InteractionsYouGotCountSet =profileDesc.objects.filter(owner=userId)
+    number=1
+    InteractionsYouGotOnMonth=[]
+    while number <= 12:
+        data=InteractionsYouGotCountSet.filter(created__month=number).aggregate(Sum('totalInteractionsyouGot'))
+        if data['totalInteractionsyouGot__sum'] is None:
+            InteractionsYouGotOnMonth.append(0)
+        else :
+            InteractionsYouGotOnMonth.append(data['totalInteractionsyouGot__sum'])
+        number = number + 1
+
+
+    viewsCount = [element * 2 for element in InteractionsYouGotOnMonth]
+
+    return render(request, 'targeting.html', {'TargetList':TargetList,
+                                              'InteractionsOnOnTargetUsers':InteractionsOnOnTargetUsers,
+                                              'InteractionsYouGotOnMonth':InteractionsYouGotOnMonth,
+                                              'viewsCount':viewsCount})
 
 
 
 @login_required(login_url='login')
 def engagement (request):
-    return render(request, 'engagement.html', {})
+    now = timezone.now()
+    current_user=request.user
+    userId=current_user.id
+
+    InteractionsOnFollowersCountSet =CustomerInteractionsOnFollowers.objects.filter(owner=userId)
+    FollowersCountSet =followers.objects.filter(owner=userId)
+
+    FollowersList = FollowersCountSet.filter(created__date__gte=(now - timedelta(days=7)).date())
+    InteractionsOnFollowersCount = InteractionsOnFollowersCountSet.filter(
+        created__date__gte=(now - timedelta(days=7)).date())
+
+    InteractionsYouGotCountSet = profileDesc.objects.filter(owner=userId)
+    number = 1
+    InteractionsYouGotOnMonth = []
+    while number <= 12:
+        data = InteractionsYouGotCountSet.filter(created__month=number).aggregate(Sum('totalInteractionsyouGot'))
+        if data['totalInteractionsyouGot__sum'] is None:
+            InteractionsYouGotOnMonth.append(0)
+        else:
+            InteractionsYouGotOnMonth.append(data['totalInteractionsyouGot__sum'])
+        number = number + 1
+
+    viewsCount = [element * 2 for element in InteractionsYouGotOnMonth]
+
+    return render(request, 'engagement.html', {'FollowersList': FollowersList,
+                                              'InteractionsOnFollowersCount': InteractionsOnFollowersCount,
+                                              'InteractionsYouGotOnMonth': InteractionsYouGotOnMonth,
+                                              'viewsCount': viewsCount})
+
 
 @login_required(login_url='login')
 def instaConn (request):
