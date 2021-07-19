@@ -59,7 +59,7 @@
                 <!--form panels-->
                 <div class="row">
                   <div class="col-12 col-lg-8 m-auto">
-                    <form class="multisteps-form__form" style="height: 467px;">
+                    <form class="multisteps-form__form" style="height: 467px;"  class="needs-validation" novalidate id="connectForm">
                       <!--single form panel-->
                       <div class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                         <div class="row text-center">
@@ -85,22 +85,24 @@
                           </div>
                         </div>
                         <div class="multisteps-form__content">
-                          <div class="row text-start">
-                            <div class="col-12 col-md-6 ms-auto mt-3">
-                              <label>Instagram ID</label>
-                              <input class="multisteps-form__input form-control" type="text">
-                            </div>
-                            <div class="col-12 col-md-6 ms-auto mt-3">
-                              <label>Instagram Password</label>
-                              <input class="multisteps-form__input form-control" type="text">
-                            </div>
-
-
+                          <div id="div_error">
                           </div>
+
+                            <div class="row text-start">
+                              <div class="col-12 col-md-6 ms-auto mt-3">
+                                <label>Instagram ID</label>
+                                <input class="multisteps-form__input form-control" type="text" id="username" required>
+                              </div>
+                              <div class="col-12 col-md-6 ms-auto mt-3">
+                                <label>Instagram Password</label>
+                                <input class="multisteps-form__input form-control" type="password" id="password" required>
+                              </div>
+                            </div>
+
                           <div class="row">
                             <div class="button-row d-flex mt-4 col-12">
                               <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button" title="Prev">Prev</button>
-                              <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button" title="Send">Send</button>
+                              <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" id="btn_connect" type="button" title="Send">Send</button>
                             </div>
                           </div>
                         </div>
@@ -110,7 +112,7 @@
                         <div class="row text-center">
                           <div class="col-12 mx-auto">
                             <h5 class="font-weight-normal">We Validate your Credentials</h5>
-                            <p>lablablablab</p>
+                            <p id="insta_username">lablablablab</p>
                           </div>
                         </div>
                         <div class="multisteps-form__content">
@@ -130,25 +132,21 @@
               </div>
             </div>
           </div>
-
-    {% for message in messages  %}
-    <h3>{{message}}</h3>
-    {% endfor %}
-
-</div>
+        </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-     <!-- ***********************************************   END Chart data   ************************************************************** -->
+{% endblock %}
+{% block target-script %}
+<script>
+    var csrftoken = '{{ csrf_token }}';
+    var postURL = '{% url "instaConn" %}';
+</script>
+<script src="{% static 'NewDashboard/assets/js/script.js' %}"></script>
+<script>
 
-
-<!-- Tabs navs -->
-
-<!-- Tabs content -->
-
-<!-- Tabs content -->
-     <!-- ***********************************************   Footer data   ************************************************************** -->
+</script>
 {% endblock %}

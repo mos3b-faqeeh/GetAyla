@@ -7,7 +7,7 @@ urlpatterns = [
     path('', include('UserProfile.urls')),
     path('mydash/', include('CurrentDashboard.urls')),
     path('', include('home.urls')),
-    path('services/', include('home.urls')),
+    path('home/', include('home.urls')),
     path('account/', include('Accounts.urls')),
 
 ]

@@ -65,16 +65,17 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-left ms-3" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="../pages/dashboard.html">
-        <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100 w-15" alt="...">
-        <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
+      <a class="navbar-brand m-0" href="{% url 'home'  %}">
+
+        <span class="ms-1 font-weight-bold">    Ayla Welcoming you    <img src="{% static 'NewDashboard/assets/img/small-logos/logo-slack.svg' %}"  class="navbar-brand-img h-100 w-40" alt="...">   </a>
+</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
            <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="{% url 'dashboard'  %}">
+          <a class="nav-link active" href="{% url 'home'  %}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>shop </title>
@@ -231,24 +232,11 @@
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link font-weight-bold px-0 text-body">
-                <i class="fa fa-user me-sm-1" aria-hidden="true"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
+                <span class="d-sm-inline d-none">    Welcome {{ user.first_name }}     .</span>
               </a>
             </li>
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link p-0 text-body" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner" bis_skin_checked="1">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link p-0 text-body">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer" aria-hidden="true"></i>
-              </a>
-            </li>
+
+
             <li class="nav-item dropdown pe-2 d-flex align-items-center">
               <a href="javascript:;" class="nav-link p-0 text-body" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-bell cursor-pointer" aria-hidden="true"></i>
