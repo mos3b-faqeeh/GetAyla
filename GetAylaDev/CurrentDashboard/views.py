@@ -16,7 +16,8 @@ from django.utils import timezone
 from datetime import timedelta
 from django.db.models import Sum
 
-
+from django.http import JsonResponse, HttpResponse
+from instagram_private_api import Client, ClientCompatPatch
 
 @login_required(login_url='login')
 def dashboard (request):
@@ -187,5 +188,65 @@ def engagement (request):
 
 @login_required(login_url='login')
 def instaConn (request):
-    return render(request, 'instaConn.html', {})
+    if request.method == 'POST':
+        user_name = request.POST.get('username')
+        password = request.POST.get('password')
+        print(user_name, password)
+        try:
+            api = Client(user_name, password)
+            user_info = api.user_info(api.authenticated_user_id)["user"]
+            postal_code = ""
+            city = ""
+            address = ""
+            username = user_info["username"]
+            full_name = user_info["full_name"]
+
+            if "zip" in user_info :
+                postal_code = user_info["zip"]
+            if "city_name" in user_info:
+                city = user_info["city_name"]
+            if "address_street" in user_info:
+                address = user_info["address_street"]
+
+            print(username, full_name, city, address, postal_code)
+            if InstaProfiles.objects.filter(owner_id=request.user.id).count() >0 :
+                insta = InstaProfiles.objects.get(owner_id=request.user.id)
+                insta.InstagramUserNameCustomer = user_name
+                insta.BusinessName = full_name
+                insta.InstagramPassword = password
+                insta.City = city
+                insta.PostalCode= postal_code
+                insta.save()
+                print("update")
+            else:
+                insta = InstaProfiles(
+                    InstagramUserNameCustomer = user_name,
+                    BusinessName = full_name,
+                    InstagramPassword = password,
+                    City = city,
+                    PostalCode= postal_code,
+                    owner = request.user
+                )
+                insta.save()
+                print("added")
+            return JsonResponse({'err_code': '2', 'description': username})
+        except Exception as e:
+            if str(e) == 'invalid_user' :
+                return JsonResponse({'err_code': '1', 'description': '''<div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-image: none">
+                    <strong>Oops!!! </strong><br>Invalid Username. Please provide correct username! 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>'''})
+                
+            elif str(e) == 'bad_password' :
+                return JsonResponse({'err_code': '1', 'description': '''<div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-image: none">
+                    <strong>Oops!!! </strong><br>Bad Password. Please provide correct password! 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>'''})
+            else:
+                return JsonResponse({'err_code': '1', 'description': '''<div class="alert alert-warning alert-dismissible fade show" role="alert" style="background-image: none">
+                    <strong>Oops!!! </strong><br>''' + str(e) + 
+                    '''<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>'''})
+    else:
+        return render(request, 'instaConn.html', {})
 

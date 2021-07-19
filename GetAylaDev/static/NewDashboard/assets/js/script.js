@@ -121,12 +121,39 @@ DOMstrings.stepsBar.addEventListener('click', e => {
 
   //get active button step number
   const activeStep = getActiveStep(eventTarget);
-
-  //set all steps before clicked (and clicked too) to active
-  setActiveStep(activeStep);
-
-  //open active panel
-  setActivePanel(activeStep);
+  if (activeStep == 2){
+    var form = $("#connectForm")
+      if (form[0].checkValidity() === false) {
+        e.preventDefault()
+        e.stopPropagation()
+        form.addClass('was-validated');
+        return;
+      }
+      $("#btn_connect").html('<span class="spinner-border spinner-border-sm"></span>');
+      $.ajax({
+        headers: { "X-CSRFToken": csrftoken },
+        url: postURL,
+        data: {
+          'username': $("#username").val(),
+          'password': $("#password").val()
+        },
+        type: 'POST',
+        success: function (data) {
+           $("#btn_connect").html('Connect');
+          if(data.err_code == "2"){
+            $("#insta_username").html(data.description);
+            setActiveStep(activeStep);
+            setActivePanel(activeStep);
+          }else{
+            $("#div_error").html(data.description);
+          }
+        }
+      });
+  }else{
+    setActiveStep(activeStep);
+    setActivePanel(activeStep);
+  }
+  
 });
 
 //PREV/NEXT BTNS CLICK
@@ -154,9 +181,39 @@ DOMstrings.stepsForm.addEventListener('click', e => {
     activePanelNum++;
 
   }
-
-  setActiveStep(activePanelNum);
-  setActivePanel(activePanelNum);
+  if (activePanelNum == 2){
+    var form = $("#connectForm")
+      if (form[0].checkValidity() === false) {
+        e.preventDefault()
+        e.stopPropagation()
+        form.addClass('was-validated');
+        return;
+      }
+      $("#btn_connect").html('<span class="spinner-border spinner-border-sm"></span>');
+      $.ajax({
+        headers: { "X-CSRFToken": csrftoken },
+        url: postURL,
+        data: {
+          'username': $("#username").val(),
+          'password': $("#password").val()
+        },
+        type: 'POST',
+        success: function (data) {
+           $("#btn_connect").html('Connect');
+          if(data.err_code == "2"){
+            $("#insta_username").html(data.description);
+            setActiveStep(activePanelNum);
+            setActivePanel(activePanelNum);
+          }else{
+            $("#div_error").html(data.description);
+          }
+        }
+      });
+  }else{
+    setActiveStep(activePanelNum);
+    setActivePanel(activePanelNum);
+  }
+  
 
 });
 
